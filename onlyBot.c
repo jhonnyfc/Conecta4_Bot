@@ -27,13 +27,15 @@ int main(){
 		}
 	}
 
+    char fichaBot      = 'X';
+    char fichaJugador  = 'O';
     //El desempeño del algortimo empieza aquí, obiamente se llamaran a las siguinetes funciones para cada turno del BOT
     //En primer lugar definmos dos vectores casosOk y casosNOok
     //Para obtener los las mejores jugadas llamaremos dos veces a cada funcion
 
 //ESTUDIO DE LOS CASOS FAVORABLES PARA EL BOT
 	int casosOk[4][3];
-	analizaEstados(tablero,'X','O',casosOk,'B');
+	analizaEstados(tablero,fichaBot,fichaJugador,casosOk,'B');
     //Los Atributos que se le pasa son los siguinetes
         //El primer atriuto es el tablero
         //El seguno atributo es la ficha del BOT
@@ -41,11 +43,15 @@ int main(){
         //El tercer atributo es el vector donde guardaremos los casos estudiados
         //El ultimo atributo es B en le caso de lo llamemos para el BOT  o  J en caso de que lo llamos para el JUGADOR
 
+
 //ESTUDIO DE LOS CASOS NO FAVORABLES PARA EL BOT
 	int casosNOok[4][3];
-	analizaEstados(tablero,'O','X',casosNOok,'J');
+	analizaEstados(tablero,fichaJugador,fichaBot,casosNOok,'J');
+    //En este Caso llamos a la funcion intercambiando las ficahs de de posicion
 
+//LLAMAMOS A ESTA FUNCION Y OBTENEMOS LA MEJOR JUGADA
 	int columna = mejorJugada(casosOk,casosNOok);
+    //EL VALOR DE RETORNO ES LA COLUMNA DE LA MEJOR JUGADA
 }
 
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario){//buscamos las posibles combianciones de ganar
