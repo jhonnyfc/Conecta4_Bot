@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <ncurses.h>
 #include <string.h>
 #include <time.h>
 
@@ -73,7 +72,7 @@ int mete(char tablero[][C], int col, char Ficah){
 }
 
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario){//buscamos las posibles combianciones de ganar
-	
+
 
 	//Buscar por columnas
 	int posCol;
@@ -112,7 +111,7 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 				int numMov;
 				for (int y = j; y < j+4; y++){
 					numMov = 0;
-					for (int x = i; x < R; x++) 
+					for (int x = i; x < R; x++)
 						if (tablero[x][y] != fichaJug && tablero[x][y] != fichaBot){
 							numMov++;
 						}
@@ -224,7 +223,7 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 									posDigIzq = j+x;
 									numFichIzq =numFichaux;
 								}
-					}	
+					}
 				}
 			}
 		}
@@ -233,7 +232,7 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 	//printf("Analisis por filas mejor jugada\n \t\t\t ->   %d   {Huecos %d, numFav %d}\n\n", posFila,minFil,numFilFich);
 	//printf("Analisis por diagonal Derecha mejor jugada\n \t\t\t ->   %d   {Huecos %d, numFav %d}\n\n", posDigDer,minDigDer,numFichDer);
 	//printf("Analisis por diagonal Izquierda mejor jugada\n \t\t\t ->   %d   {Huecos %d , numFav %d}\n\n", posDigIzq,minDigIzq,numFichIzq);
-	
+
 	jugadas[0][0] = posCol;
 	if (numColFich == 3)
 		jugadas[0][1] = 1;
@@ -248,7 +247,7 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 	jugadas[2][0] = posDigDer;
 	jugadas[2][1] = minDigDer;
 	jugadas[2][2] = numFichDer;
-	
+
 	jugadas[3][0] = posDigIzq;
 	jugadas[3][1] = minDigIzq;
 	jugadas[3][2] = numFichIzq;
