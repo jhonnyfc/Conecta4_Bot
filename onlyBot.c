@@ -31,7 +31,7 @@ int main(){
     //En primer lugar definmos dos vectores casosOk y casosNOok
     //Para obtener los las mejores jugadas llamaremos dos veces a cada funcion
 
-    //ESTUDIO DE LOS CASOS FAVORABLES PARA EL BOT
+//ESTUDIO DE LOS CASOS FAVORABLES PARA EL BOT
 	int casosOk[4][3];
 	analizaEstados(tablero,'X','O',casosOk,'B');
     //Los Atributos que se le pasa son los siguinetes
@@ -41,7 +41,7 @@ int main(){
         //El tercer atributo es el vector donde guardaremos los casos estudiados
         //El ultimo atributo es B en le caso de lo llamemos para el BOT  o  J en caso de que lo llamos para el JUGADOR
 
-    //ESTUDIO DE LOS CASOS NO FAVORABLES PARA EL BOT
+//ESTUDIO DE LOS CASOS NO FAVORABLES PARA EL BOT
 	int casosNOok[4][3];
 	analizaEstados(tablero,'O','X',casosNOok,'J');
 
