@@ -28,6 +28,8 @@ int simulador(){
 				tablero[i][j] = '-';//auxxxx
 		}
 	}
+	char fichaBot      = 'X';
+    char fichaJugador  = 'O';
 
 
 	while (1){
@@ -44,10 +46,10 @@ int simulador(){
 
 		sleep(1);
 		int casosOk[4][3];
-		analizaEstados(tablero,'X','O',casosOk,'B');//El primer carater es la ficah del bot el segundo caracter es la ficaha del jugador
+		analizaEstados(tablero,fichaBot,fichaJugador,casosOk,'B');//El primer carater es la ficah del bot el segundo caracter es la ficaha del jugador
 
 		int casosNOok[4][3];
-		analizaEstados(tablero,'O','X',casosNOok,'J');
+		analizaEstados(tablero,fichaBot,fichaJugador,casosNOok,'J');
 
 		int columna = mejorJugada(casosOk,casosNOok);
 		mete(tablero,columna,'X');
