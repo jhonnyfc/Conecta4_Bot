@@ -4,8 +4,8 @@
 #include <string.h>
 #include <time.h>
 
-#define C 7
-#define R 6
+int C;
+int R;
 
 int mete(char tablero[][C], int col, char Ficah);
 int mejorJugada(int casosOk[][3], int casosNOok[][3]);
@@ -21,6 +21,9 @@ int main(){
 }
 
 int simulador(){
+	C = 8;	//min 7
+	R = 7;	//min 6
+
 	char tablero[R][C];
 
 	for (int i = 0; i < R; ++i){
@@ -44,7 +47,7 @@ int simulador(){
 		scanf("%d",&col);
 		mete(tablero,col-1,'O');
 
-		sleep(1);
+		//sleep(1);
 		int casosOk[4][3];
 		analizaEstados(tablero,fichaBot,fichaJugador,casosOk,'B');//El primer carater es la ficah del bot el segundo caracter es la ficaha del jugador
 
