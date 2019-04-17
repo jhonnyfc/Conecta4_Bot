@@ -29,7 +29,8 @@ int main(){
 
     char fichaBot      = 'X';
     char fichaJugador  = 'O';
-    //El desempeño del algortimo empieza aquí, obiamente se llamaran a las siguinetes funciones para cada turno del BOT
+
+//EL DESEMPEÑO DE ALGORITMO EMPIEZA AQUÍ, obiamente se llamaran a las siguinetes funciones para cada turno del BOT
     //En primer lugar definmos dos vectores casosOk y casosNOok
     //Para obtener los las mejores jugadas llamaremos dos veces a cada funcion
 
