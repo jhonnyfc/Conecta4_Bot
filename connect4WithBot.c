@@ -150,8 +150,6 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 			if (prometedorDiagonal(tablero,i,j,'D', fichaJug) ){
 				//Buscamos cauntas ficahs hacen falta para cada completar cada pscion de la diagonal
 				//Sera  faborable si el numero de fiuchas par una poscion es impar o 1
-				//printf("%d %d ~ ", i, j);
-
 				int numMov;
 				int numFichaux;
 				for (int x = 0; x <= 3; x++){//se compreuba una posible diagonal y se busca la ficaha que mjor staisfagaalafuncion fitness
@@ -230,10 +228,6 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 			}
 		}
 	}
-	//printf("Analisis por columnas mejor jugada\n \t\t\t ->   %d   { numFav %d}\n\n",posCol,numColFich);
-	//printf("Analisis por filas mejor jugada\n \t\t\t ->   %d   {Huecos %d, numFav %d}\n\n", posFila,minFil,numFilFich);
-	//printf("Analisis por diagonal Derecha mejor jugada\n \t\t\t ->   %d   {Huecos %d, numFav %d}\n\n", posDigDer,minDigDer,numFichDer);
-	//printf("Analisis por diagonal Izquierda mejor jugada\n \t\t\t ->   %d   {Huecos %d , numFav %d}\n\n", posDigIzq,minDigIzq,numFichIzq);
 
 	jugadas[0][0] = posCol;
 	if (numColFich == 3)
