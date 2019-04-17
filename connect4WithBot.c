@@ -49,7 +49,7 @@ int simulador(){
 		analizaEstados(tablero,fichaBot,fichaJugador,casosOk,'B');//El primer carater es la ficah del bot el segundo caracter es la ficaha del jugador
 
 		int casosNOok[4][3];
-		analizaEstados(tablero,fichaBot,fichaJugador,casosNOok,'J');
+		analizaEstados(tablero,fichaJugador,fichaBot,casosNOok,'J');
 
 		int columna = mejorJugada(casosOk,casosNOok);
 		mete(tablero,columna,'X');
