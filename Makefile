@@ -1,3 +1,3 @@
 all: 4ray
-4ray: 4rayOptimoFinal.c
-	gcc -Wall -g -o 4rayOptimoFinal 4rayOptimoFinal.c
+4ray: connect4WithBot.c
+	gcc -Wall -g -o connect4WithBot connect4WithBot.c
