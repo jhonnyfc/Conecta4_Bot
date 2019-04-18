@@ -14,11 +14,10 @@ int prometedorDiagonal(char tablero[][C], int i, int j, char dir, char fichaJug)
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario);
 
 int main(){
-    //ESTAS VARAIABLES SON NESCESARIAS QUE SEAN GLOBALES
+
+//ESTAS VARAIABLES ES NECESARIO QUE SEAN GLOBALES  -  EN CASO CONTRARIO CONTACTE CON EL CREADOR
     C = 7;
     R = 6;
-
-    ///HE PUESTO COM GLOBALES LOS LOS VALORES DE FILAS Y COLUMNAS
 
     char tablero[R][C];//Definicion del Tablero
 
