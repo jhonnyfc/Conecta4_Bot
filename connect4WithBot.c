@@ -309,6 +309,11 @@ int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 		}
 	}
 	for (int i = 0; i < 4; i++){
+		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2){
+			return casosNOok[i][0];
+		}
+	}
+	for (int i = 0; i < 4; i++){
 		if (casosOk[i][1] == 1 && casosOk[i][2] >= 2){
 			return casosOk[i][0];
 		}
@@ -318,11 +323,7 @@ int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 			return casosOk[i][0];
 		}
 	}
-	for (int i = 0; i < 4; i++){
-		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2){
-			return casosNOok[i][0];
-		}
-	}
+	
 	srand(time(NULL));
 	return casosOk[rand() % 5][0];
 }
