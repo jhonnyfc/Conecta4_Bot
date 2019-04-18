@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <ncurses.h>
 #include <string.h>
 #include <time.h>
 
-int C; 7
-int R; 6
+int C;
+int R;
 
 int mejorJugada(int casosOk[][3], int casosNOok[][3]);
 int prometedorCol(char tablero[][C], int j,int i,char fichaJug);
@@ -53,6 +52,8 @@ int main(){
 //LLAMAMOS A ESTA FUNCION Y OBTENEMOS LA MEJOR JUGADA
 	int columna = mejorJugada(casosOk,casosNOok);
     //EL VALOR DE RETORNO ES LA COLUMNA DE LA MEJOR JUGADA
+
+    return 1;
 }
 
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario){//buscamos las posibles combianciones de ganar
