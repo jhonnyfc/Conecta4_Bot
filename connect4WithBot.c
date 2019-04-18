@@ -29,7 +29,7 @@ int simulador(){
 
 	for (int i = 0; i < R; ++i){
 		for (int j = 0; j < C; ++j){
-				tablero[i][j] = '-';//auxxxx
+				tablero[i][j] = '-';
 		}
 	}
 	char fichaBot      = 'X';
@@ -78,8 +78,6 @@ int mete(char tablero[][C], int col, char Ficah){
 }
 
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario){//buscamos las posibles combianciones de ganar
-
-
 	//Buscar por columnas
 	int posCol;
 	int numColFich = 0; //numeor de ficahs faborable en la jugada
@@ -332,7 +330,7 @@ int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 int intro(){
 	printf("\n");
 	printf("***********************************************************************************************************************************\n");
-	printf("*********************************************************   JCSOUL  ***************************************************************\n");
+	printf("*********************************************************  JC SOUL  ***************************************************************\n");
 	printf("***********************************************************************************************************************************\n");
 	printf("**                                                                                                                               **\n");
 	printf("**      *******      ********     **            **   *************       ********   **************       **          **      **  **\n");
