@@ -299,27 +299,35 @@ int prometedorCol(char tablero[][C], int j,int i,char fichaJug){
 
 int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 	for (int i = 0; i < 4; i++){
-		if (casosNOok[i][1] == 1 && casosNOok[i][2] == 3){
+        printf("%d %d %d \n",casosOk[i][0],casosOk[i][1],casosOk[i][2]);
+	}
+	printf("\n");
+	for (int i = 0; i < 4; i++){
+        printf("%d %d %d \n",casosNOok[i][0],casosNOok[i][1],casosNOok[i][2]);
+	}
+    
+	for (int i = 0; i < 4; i++){
+		if (casosNOok[i][1] == 1 && casosNOok[i][2] == 3 && casosNOok[i][1] < 35000  && casosNOok[i][0] < C){
 			return casosNOok[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] == 3){
+		if (casosOk[i][1] == 1 && casosOk[i][2] == 3 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
 			return casosOk[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2){
+		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2 && casosNOok[i][1] < 35000  && casosNOok[i][0] < C){
 			return casosNOok[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] >= 2){
+		if (casosOk[i][1] == 1 && casosOk[i][2] >= 2 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
 			return casosOk[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] > 0){
+		if (casosOk[i][1] == 1 && casosOk[i][2] > 0 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
 			return casosOk[i][0];
 		}
 	}
