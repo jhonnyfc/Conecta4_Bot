@@ -57,7 +57,7 @@ int simulador(){
 		analizaEstados(tablero,fichaJugador,fichaBot,casosNOok,'J');
 
 		int columna = mejorJugada(casosOk,casosNOok);
-		printf("%d\n", columna);
+		//printf("%d\n", columna);
 		mete(tablero,columna,'X');
 		printf("\n");
 		printf("\n");
@@ -357,14 +357,14 @@ int prometedorCol(char tablero[][C], int j,int i,char fichaJug){
 }
 
 int mejorJugada(int casosOk[][3], int casosNOok[][3]){
-  
+  /*
 	for (int i = 0; i < 4; i++){
         printf("%d %d %d \n",casosOk[i][0],casosOk[i][1],casosOk[i][2]);
 	}
 	printf("\n");
 	for (int i = 0; i < 4; i++){
         printf("%d %d %d \n",casosNOok[i][0],casosNOok[i][1],casosNOok[i][2]);
-	}
+	}*/
     
 	for (int i = 0; i < 4; i++){
 		if (casosNOok[i][1] == 1 && casosNOok[i][2] == 3){
@@ -391,7 +391,6 @@ int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 			return casosOk[i][0];
 		}
 	}
-  printf("K pachao ???\n");
 	//srand(time(NULL));
 	return casosOk[rand() % 4][0];
 }
