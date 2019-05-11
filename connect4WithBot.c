@@ -26,6 +26,7 @@ int simulador(){
 	R = 7;	//min 6
 
 	char tablero[R][C];
+  srand(time(NULL));
 
 	for (int i = 0; i < R; ++i){
 		for (int j = 0; j < C; ++j){
@@ -56,6 +57,7 @@ int simulador(){
 		analizaEstados(tablero,fichaJugador,fichaBot,casosNOok,'J');
 
 		int columna = mejorJugada(casosOk,casosNOok);
+		printf("%d\n", columna);
 		mete(tablero,columna,'X');
 		printf("\n");
 		printf("\n");
@@ -78,6 +80,27 @@ int mete(char tablero[][C], int col, char Ficah){
 }
 
 int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[][3],char Usuario){//buscamos las posibles combianciones de ganar
+  int vaFin = 0;
+  int auxpos;
+	for (int i=0; i < C; i++){
+      if (tablero[R-1][i] != fichaBot && tablero[R-1][i] != fichaJug){
+	        vaFin++;
+	    }
+      if (tablero[R-1][i] == fichaJug){
+        auxpos = i;
+	    }
+	}
+  if (vaFin == C-1){
+    //srand(time(NULL));
+    for (int i = 0; i < 4; i++){
+        int x;
+            jugadas[i][0] = ((x = rand() % (C/2+1)) != auxpos) ? (x) :  (rand() % (C/2+1));
+            jugadas[i][1] = 1700;
+            jugadas[i][2] = 1700;
+  	}
+    return 1;
+  }
+
 	//Buscar por columnas
 	int posCol;
 	int numColFich = 0; //numeor de ficahs faborable en la jugada
@@ -249,6 +272,42 @@ int analizaEstados(char tablero[][C], char fichaBot, char fichaJug, int jugadas[
 	jugadas[3][0] = posDigIzq;
 	jugadas[3][1] = minDigIzq;
 	jugadas[3][2] = numFichIzq;
+	
+	//Comprobacion de Errores
+	
+	int vacios = 0;
+	for (int i=0; i < C; i++){
+	    if (tablero[0][i] != fichaBot && tablero[0][i] != fichaJug){
+	        vacios++;
+	    }
+	}
+
+	int posibles[vacios];
+	int j = 0;
+	for (int i=0; i < C; i++){
+	    if (tablero[0][i] != fichaBot && tablero[0][i] != fichaJug){
+	        posibles[j] = i;//guardamos los valores que son cantidatos para jugada
+	        j++;
+	    }
+	}
+  
+  //Comprobacion
+	//Hay que que evitar los caso en los que no  se haya conseguido sacar ninguna jugada posible
+	//y rellena r la matriz con esoooo
+	int comp = 0;
+	for (int i = 0; i < 4; i++){
+        for (int x = 0; x < vacios; x++){
+            if (jugadas[i][0] == posibles[x]){
+                comp = 1;
+            }
+        }
+        if (comp == 0){
+            jugadas[i][0] = posibles[rand() % vacios];
+            jugadas[i][1] = 1700;
+            jugadas[i][2] = 1700;
+        }
+        comp = 0;
+	}
 	return 1;
 }
 
@@ -298,6 +357,7 @@ int prometedorCol(char tablero[][C], int j,int i,char fichaJug){
 }
 
 int mejorJugada(int casosOk[][3], int casosNOok[][3]){
+  
 	for (int i = 0; i < 4; i++){
         printf("%d %d %d \n",casosOk[i][0],casosOk[i][1],casosOk[i][2]);
 	}
@@ -307,33 +367,33 @@ int mejorJugada(int casosOk[][3], int casosNOok[][3]){
 	}
     
 	for (int i = 0; i < 4; i++){
-		if (casosNOok[i][1] == 1 && casosNOok[i][2] == 3 && casosNOok[i][1] < 35000  && casosNOok[i][0] < C){
+		if (casosNOok[i][1] == 1 && casosNOok[i][2] == 3){
 			return casosNOok[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] == 3 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
+		if (casosOk[i][1] == 1 && casosOk[i][2] == 3){
 			return casosOk[i][0];
 		}
 	}
-	for (int i = 0; i < 4; i++){
-		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2 && casosNOok[i][1] < 35000  && casosNOok[i][0] < C){
+  for (int i = 0; i < 4; i++){
+		if (casosNOok[i][1] == 1 && casosNOok[i][2] >= 2){
 			return casosNOok[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] >= 2 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
+		if (casosOk[i][1] == 1 && casosOk[i][2] >= 2){
 			return casosOk[i][0];
 		}
 	}
 	for (int i = 0; i < 4; i++){
-		if (casosOk[i][1] == 1 && casosOk[i][2] > 0 && casosOk[i][1] < 35000  && casosNOok[i][0] < C){
+		if (casosOk[i][1] == 1 && casosOk[i][2] > 0){
 			return casosOk[i][0];
 		}
 	}
-	
-	srand(time(NULL));
-	return casosOk[rand() % 5][0];
+  printf("K pachao ???\n");
+	//srand(time(NULL));
+	return casosOk[rand() % 4][0];
 }
 
 int intro(){
